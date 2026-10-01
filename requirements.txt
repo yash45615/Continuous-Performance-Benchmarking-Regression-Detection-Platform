@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+pydantic-settings
+python-dotenv
+pytest
+pytest-benchmark
+locust
+pandas
+numpy
+psutil
+prometheus-client
+httpx
+PyYAML
+Jinja2

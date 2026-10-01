@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+Performance Benchmark Report
+</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.pass {
+    font-weight: bold;
+}
+
+.fail {
+    font-weight: bold;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>
+Continuous Performance Benchmark Report
+</h1>
+
+<p>
+Benchmark:
+<strong>{{ benchmark_name }}</strong>
+</p>
+
+<p>
+Generated:
+{{ generated_at }}
+</p>
+
+<h2>Metric Comparison</h2>
+
+<table>
+
+<tr>
+<th>Metric</th>
+<th>Baseline</th>
+<th>Current</th>
+<th>Change</th>
+<th>Threshold</th>
+<th>Status</th>
+</tr>
+
+{% for comparison in comparisons %}
+
+<tr>
+
+<td>
+{{ comparison.metric }}
+</td>
+
+<td>
+{{ comparison.baseline }}
+</td>
+
+<td>
+{{ comparison.current }}
+</td>
+
+<td>
+{{ comparison.change_percent }}%
+</td>
+
+<td>
+{{ comparison.threshold_percent }}%
+</td>
+
+<td>
+
+{% if comparison.regression %}
+
+<span class="fail">
+REGRESSION
+</span>
+
+{% else %}
+
+<span class="pass">
+PASS
+</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<h2>Baseline</h2>
+
+<pre>
+{{ baseline | tojson(indent=2) }}
+</pre>
+
+
+<h2>Current Result</h2>
+
+<pre>
+{{ current | tojson(indent=2) }}
+</pre>
+
+
+<h2>Triage</h2>
+
+<pre>
+{{ triage | tojson(indent=2) }}
+</pre>
+
+
+</body>
+
+</html>

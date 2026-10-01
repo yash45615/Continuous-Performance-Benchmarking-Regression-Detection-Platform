@@ -1,0 +1,37 @@
+benchmark_environment:
+
+  warmup_iterations: 10
+
+  measurement_runs: 5
+
+  requests_per_worker: 20
+
+  concurrency: 5
+
+  timeout_seconds: 30
+
+  percentile_metrics:
+    - p50
+    - p95
+    - p99
+
+  environment_capture:
+    - python_version
+    - platform
+    - processor
+    - cpu_count
+    - memory_total_mb
+
+regression:
+
+  latency_threshold_percent: 10
+
+  throughput_threshold_percent: 10
+
+  noisy_run_cv_threshold: 0.20
+
+database:
+
+  dataset_size: 100000
+
+  database: PostgreSQL

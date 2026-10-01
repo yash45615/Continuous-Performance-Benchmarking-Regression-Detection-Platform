@@ -1,0 +1,22 @@
+benchmark:
+  name: api_health
+
+  iterations: 10
+
+  warmup_iterations: 3
+
+  regression_threshold_percent: 10
+
+  environment:
+    name: local
+
+workloads:
+
+  - name: api_health
+    type: http
+    endpoint: /health
+    method: GET
+
+  - name: database_health
+    type: database
+    query: SELECT 1

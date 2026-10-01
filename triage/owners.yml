@@ -1,0 +1,15 @@
+api:
+  owner: backend-team
+  component: api
+
+database:
+  owner: database-team
+  component: postgres
+
+load:
+  owner: performance-team
+  component: load-testing
+
+infrastructure:
+  owner: platform-team
+  component: infrastructure
